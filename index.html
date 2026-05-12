@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>System Selection & Implementation Roadmap — Park Foundation</title>
+<title>System Evolution Roadmap — Park Foundation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
   --text-muted: #656258;
   --border-light: rgba(0,0,0,0.08);
   --bg-white: #FFFFFF;
-  --bg-subtle: #FAF9F6;
 }
 
 body {
@@ -45,7 +44,7 @@ body {
 .title em { font-style: italic; font-weight: 400; color: var(--teal-accent); }
 .meta-info { text-align: right; font-size: 11px; color: var(--text-muted); line-height: 1.5; }
 
-.summary-desc { margin-top: 30px; font-size: 16px; color: var(--slate-600); max-width: 750px; line-height: 1.6; }
+.summary-desc { margin-top: 30px; font-size: 16px; color: var(--slate-600); max-width: 780px; line-height: 1.6; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
 /* SECTION TYPOGRAPHY */
 .section { margin-top: 60px; }
@@ -56,8 +55,8 @@ body {
 /* GANTT */
 .gantt-box { border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; }
 .gantt-grid { display: grid; grid-template-columns: 240px 1fr; }
-.gantt-head { background: var(--bg-subtle); padding: 12px 20px; font-size: 10px; font-weight: 700; border-bottom: 1px solid var(--border-light); }
-.gantt-months { display: grid; grid-template-columns: repeat(6, 1fr); background: var(--bg-subtle); border-bottom: 1px solid var(--border-light); }
+.gantt-head { background: #FAF9F6; padding: 12px 20px; font-size: 10px; font-weight: 700; border-bottom: 1px solid var(--border-light); }
+.gantt-months { display: grid; grid-template-columns: repeat(6, 1fr); background: #FAF9F6; border-bottom: 1px solid var(--border-light); }
 .gm { padding: 12px; text-align: center; font-size: 10px; border-left: 1px solid var(--border-light); color: var(--text-muted); }
 .gantt-label { padding: 18px 20px; border-bottom: 1px solid var(--border-light); font-size: 13px; font-weight: 500; }
 .gantt-label small { display: block; font-size: 10px; color: var(--text-muted); font-weight: 400; }
@@ -71,7 +70,7 @@ body {
 .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .pcard { border: 1px solid var(--border-light); border-radius: 12px; padding: 25px; background: #fff; }
 .pcard-num { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; display: block; }
-.pcard-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 15px; }
+.pcard-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; margin-bottom: 15px; }
 .tactic { margin-bottom: 15px; display: flex; gap: 10px; }
 .tactic-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-accent); margin-top: 6px; flex-shrink: 0; }
 .t-label { font-size: 12px; font-weight: 600; display: block; margin-bottom: 2px; }
@@ -90,12 +89,6 @@ body {
 .m-list { list-style: none; font-size: 11px; color: var(--text-muted); }
 .m-list li { margin-bottom: 5px; padding-left: 12px; position: relative; }
 .m-list li::before { content: "•"; position: absolute; left: 0; color: var(--slate-200); }
-
-/* OUTCOMES */
-.outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.out-card { padding: 20px; border-left: 3px solid var(--teal-accent); background: var(--bg-subtle); border-radius: 0 8px 8px 0; }
-.out-title { font-size: 13px; font-weight: 600; display: block; margin-bottom: 5px; }
-.out-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
 
 /* PHILOSOPHY */
 .phil-box { background: var(--slate-800); border-radius: 12px; padding: 40px; color: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px; }
@@ -117,137 +110,127 @@ body {
   <header class="header">
     <div class="header-top">
       <div>
-        <span class="org-tag">Park Foundation · Strategic Systems Selection</span>
-        <h1 class="title">Building a Foundation for<br><em>Digital Maturity</em></h1>
+        <span class="org-tag">Park Foundation · Digital Evolution & System Selection</span>
+        <h1 class="title">A Roadmap for <em>Digital Evolution</em></h1>
       </div>
       <div class="meta-info">
-        <strong>Selection & Implementation Strategy</strong><br>
+        <strong>Strategic Selection & Implementation</strong><br>
         Prepared for Roberta M. Norman, CFO<br>
-        May 2025
+        May 2026
       </div>
     </div>
     <p class="summary-desc">
-      A roadmap for transitioning Park Foundation to a next-generation GMS—built on <strong>listening before configuring</strong>, rigorous data integrity, and a seamless integration between grants and finance operations.
+      "Building a system that reflects the excellence of Park’s program work—prioritizing staff partnership, data integrity, and a seamless bridge between grants and finance."
     </p>
   </header>
 
   <!-- TIMELINE -->
   <section class="section">
-    <div class="sec-header"><span class="sec-label">Project Timeline</span><div class="sec-rule"></div></div>
+    <div class="sec-header"><span class="sec-label">Implementation Timeline</span><div class="sec-rule"></div></div>
     <div class="gantt-box">
       <div class="gantt-grid">
         <div class="gantt-head">Phase</div>
         <div class="gantt-months">
           <div class="gm">Mo 1</div><div class="gm">Mo 2</div><div class="gm">Mo 3</div><div class="gm">Mo 4</div><div class="gm">Mo 5</div><div class="gm">Mo 6</div>
         </div>
-        <div class="gantt-label">Discovery & Requirements<small>Phase 1</small></div>
-        <div class="gantt-bar-area"><div class="bar bar-t" style="width:30%; left:2%;">Audit & Requirement Map</div></div>
-        <div class="gantt-label">Configuration & Migration<small>Phase 2</small></div>
-        <div class="gantt-bar-area"><div class="bar bar-p" style="width:40%; left:32%;">GMS Build & Sage Integration</div></div>
-        <div class="gantt-label">Training & Adoption<small>Phase 3</small></div>
-        <div class="gantt-bar-area"><div class="bar bar-a" style="width:25%; left:72%;">Sandbox & SOP Launch</div></div>
+        <div class="gantt-label">Discovery & Alignment<small>Documentation & Requirements</small></div>
+        <div class="gantt-bar-area"><div class="bar bar-t" style="width:30%; left:2%;">Listen & Select</div></div>
+        <div class="gantt-label">Sustainable Build<small>Technical Setup & Migration</small></div>
+        <div class="gantt-bar-area"><div class="bar bar-p" style="width:40%; left:32%;">GMS Design & Finance Link</div></div>
+        <div class="gantt-label">Training & Support<small>Go-Live & Adoption</small></div>
+        <div class="gantt-bar-area"><div class="bar bar-a" style="width:25%; left:72%;">Staff Adoption & Refinement</div></div>
       </div>
     </div>
   </section>
 
   <!-- PHASE CARDS -->
   <section class="section">
-    <div class="sec-header"><span class="sec-label">Phase Breakdown</span><div class="sec-rule"></div></div>
+    <div class="sec-header"><span class="sec-label">Evolution Strategy</span><div class="sec-rule"></div></div>
     <div class="phase-grid">
       <div class="pcard">
         <span class="pcard-num">Phase 1</span>
-        <h3 class="pcard-title">Discovery & Vetting</h3>
-        <div class="tactic"><div class="tactic-dot"></div><div><span class="t-label">Requirement Map</span><span class="t-desc">Interviewing staff to turn manual workarounds into must-have system features.</span></div></div>
-        <div class="tactic"><div class="tactic-dot"></div><div><span class="t-label">Vendor Scorecard</span><span class="t-desc">Objective comparison of platforms against Park's specific grant cycles.</span></div></div>
-        <div class="tactic"><div class="tactic-dot"></div><div><span class="t-label">Institutional Knowledge Audit</span><span class="t-desc">Surfacing operational bottlenecks invisible to program staff.</span></div></div>
+        <h3 class="pcard-title">Listening & Discovery</h3>
+        <div class="tactic"><div class="tactic-dot"></div><div><span class="t-label">Institutional Knowledge Capture</span><span class="t-desc">Documenting current workflows to ensure the new system protects the team's existing expertise.</span></div></div>
+        <div class="tactic"><div class="tactic-dot"></div><div><span class="t-label">Collaborative Vetting</span><span class="t-desc">Involving staff in demos to find the tool that feels most intuitive for their daily work.</span></div></div>
+        <div class="tactic"><div class="tactic-dot"></div><div><span class="t-label">Gap Analysis</span><span class="t-desc">Identifying where manual tasks can be simplified to free up staff time for mission-focused work.</span></div></div>
       </div>
       <div class="pcard">
         <span class="pcard-num">Phase 2</span>
-        <h3 class="pcard-title">Technical Migration</h3>
-        <div class="tactic"><div class="tactic-dot" style="background:var(--purple-accent);"></div><div><span class="t-label">The "Data Scrub"</span><span class="t-desc">Cleaning records and missing docs *before* migration to ensure a clean start.</span></div></div>
-        <div class="tactic"><div class="tactic-dot" style="background:var(--purple-accent);"></div><div><span class="t-label">Finance Integration</span><span class="t-desc">Mapping GMS-to-accounting link to eliminate double-entry for the CFO.</span></div></div>
-        <div class="tactic"><div class="tactic-dot" style="background:var(--purple-accent);"></div><div><span class="t-label">Compliance Architecture</span><span class="t-desc">Hard-stop gates for IRS status and due diligence built into the core workflow.</span></div></div>
+        <h3 class="pcard-title">Sustainable Build</h3>
+        <div class="tactic"><div class="tactic-dot" style="background:var(--purple-accent);"></div><div><span class="t-label">Data Integrity Scrub</span><span class="t-desc">Cleaning legacy records before the move, ensuring a "fresh start" for the entire organization.</span></div></div>
+        <div class="tactic"><div class="tactic-dot" style="background:var(--purple-accent);"></div><div><span class="t-label">Finance Partnership</span><span class="t-desc">Working with the CFO to automate data flows to Sage Intacct, reducing administrative friction.</span></div></div>
+        <div class="tactic"><div class="tactic-dot" style="background:var(--purple-accent);"></div><div><span class="t-label">Automated Compliance</span><span class="t-desc">Embedding IRS status checks into the workflow to simplify audit readiness.</span></div></div>
       </div>
       <div class="pcard">
         <span class="pcard-num">Phase 3</span>
-        <h3 class="pcard-title">Adoption & ROI</h3>
-        <div class="tactic"><div class="tactic-dot" style="background:var(--amber-accent);"></div><div><span class="t-label">The Sandbox Period</span><span class="t-desc">A low-stakes environment where staff can practice without fear of affecting live data.</span></div></div>
-        <div class="tactic"><div class="tactic-dot" style="background:var(--amber-accent);"></div><div><span class="t-label">SOP Digital Library</span><span class="t-desc">Video tutorials and guides built specifically for Park Foundation’s unique cycles.</span></div></div>
-        <div class="tactic"><div class="tactic-dot" style="background:var(--amber-accent);"></div><div><span class="t-label">Monthly Clinics</span><span class="t-desc">Sessions to refine system settings based on real-world staff feedback.</span></div></div>
+        <h3 class="pcard-title">Earned Adoption</h3>
+        <div class="tactic"><div class="tactic-dot" style="background:var(--amber-accent);"></div><div><span class="t-label">The Sandbox Environment</span><span class="t-desc">A safe space for staff to explore the new tools without affecting live data or reporting.</span></div></div>
+        <div class="tactic"><div class="tactic-dot" style="background:var(--amber-accent);"></div><div><span class="t-label">Tailored Training</span><span class="t-desc">Video guides and SOPs built around Park Foundation’s specific, unique grant cycles.</span></div></div>
+        <div class="tactic"><div class="tactic-dot" style="background:var(--amber-accent);"></div><div><span class="t-label">Continuous Optimization</span><span class="t-desc">Ongoing clinics to refine the system based on staff feedback after launch.</span></div></div>
       </div>
     </div>
   </section>
 
   <!-- STAKEHOLDER MATRIX -->
   <section class="section">
-    <div class="sec-header"><span class="sec-label">Engagement Matrix — Who Does What</span><div class="sec-rule"></div></div>
+    <div class="sec-header"><span class="sec-label">Engagement Matrix — Team Partnership</span><div class="sec-rule"></div></div>
     <table class="matrix">
       <thead>
         <tr>
           <th style="width: 250px;">Stakeholder</th>
           <th>Phase 1: Discovery</th>
           <th>Phase 2: Build</th>
-          <th>Phase 3: Launch</th>
+          <th>Phase 3: Support</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><div class="role-name">Program Officers</div><div class="role-sub">Amy, Sue, Michael, Nick & Charlene</div></td>
-          <td><span class="badge b-core">Lead Input</span><ul class="m-list"><li>Workflow Audit</li><li>Surface manual gaps</li></ul></td>
-          <td><span class="badge">Tester</span><ul class="m-list"><li>Validate GMS Logic</li><li>Flag gaps</li></ul></td>
-          <td><span class="badge">Core User</span><ul class="m-list"><li>Sandbox testing</li><li>SOP Review</li></ul></td>
+          <td><span class="badge b-core">Lead Input</span><ul class="m-list"><li>Share expertise</li><li>Vet intuitiveness</li></ul></td>
+          <td><span class="badge">Collaborator</span><ul class="m-list"><li>Logic validation</li><li>Beta testing</li></ul></td>
+          <td><span class="badge">Owners</span><ul class="m-list"><li>Sandbox use</li><li>Ongoing feedback</li></ul></td>
         </tr>
         <tr>
           <td><div class="role-name">Executive Director</div><div class="role-sub">Rachel Leon</div></td>
-          <td><span class="badge b-review">Sponsor</span><ul class="m-list"><li>Communicate vision</li><li>Protect staff time</li></ul></td>
-          <td><span class="badge b-review">Approver</span><ul class="m-list"><li>Approve priorities</li><li>Review strategy</li></ul></td>
-          <td><span class="badge b-review">Oversight</span><ul class="m-list"><li>Dashboard access</li><li>Review metrics</li></ul></td>
+          <td><span class="badge b-review">Sponsor</span><ul class="m-list"><li>Define vision</li><li>Protect staff time</li></ul></td>
+          <td><span class="badge b-review">Approver</span><ul class="m-list"><li>Approve priorities</li><li>Ensure alignment</li></ul></td>
+          <td><span class="badge b-review">Beneficiary</span><ul class="m-list"><li>High-level metrics</li><li>Impact tracking</li></ul></td>
         </tr>
         <tr>
           <td><div class="role-name">CFO / Finance</div><div class="role-sub">Roberta M. Norman</div></td>
-          <td><span class="badge b-core">Lead Input</span><ul class="m-list"><li>Reporting Gaps</li><li>Audit Readiness</li></ul></td>
-          <td><span class="badge b-lead">Co-Architect</span><ul class="m-list"><li>Sage Intacct Link</li><li>Compliance Gates</li></ul></td>
-          <td><span class="badge b-review">Reviewer</span><ul class="m-list"><li>Verify accuracy</li><li>Audit sign-off</li></ul></td>
+          <td><span class="badge b-core">Lead Input</span><ul class="m-list"><li>Reporting needs</li><li>Risk parameters</li></ul></td>
+          <td><span class="badge b-lead">Co-Architect</span><ul class="m-list"><li>Integrate finance</li><li>Audit controls</li></ul></td>
+          <td><span class="badge b-review">Reviewer</span><ul class="m-list"><li>Verify accuracy</li><li>Sign-off</li></ul></td>
         </tr>
         <tr>
           <td><div class="role-name">Trustees</div><div class="role-sub">Adelaide Gomer, Alicia Wittink & Board</div></td>
-          <td><span class="badge">— Informed</span><ul class="m-list"><li>Briefed on scope</li></ul></td>
-          <td><span class="badge">— Informed</span><ul class="m-list"><li>Progress updates</li></ul></td>
-          <td><span class="badge b-review">Beneficiary</span><ul class="m-list"><li>Governance-grade data</li><li>Portfolio reporting</li></ul></td>
+          <td><span class="badge">— Informed</span><ul class="m-list"><li>Briefed on progress</li></ul></td>
+          <td><span class="badge">— Informed</span><ul class="m-list"><li>Timeline updates</li></ul></td>
+          <td><span class="badge b-review">Beneficiary</span><ul class="m-list"><li>Clean portfolio data</li><li>Strategic insights</li></ul></td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <!-- VALUE ADD SECTION -->
-  <section class="section">
-    <div class="sec-header"><span class="sec-label">Why This Approach Works</span><div class="sec-rule"></div></div>
-    <div class="outcomes-grid">
-      <div class="out-card"><span class="out-title">Compliance Architecture</span><span class="out-desc">IRS status and due diligence verified at every stage—protecting CFO audit readiness.</span></div>
-      <div class="out-card"><span class="out-title">Zero Double-Entry</span><span class="out-desc">Finance integration eliminates redundant data entry across 330+ annual grantees.</span></div>
-      <div class="out-card"><span class="out-title">Governance-Grade Data</span><span class="out-desc">Board receives clean, reliable portfolio data for high-level strategic conversations.</span></div>
-    </div>
-  </section>
-
   <!-- PHILOSOPHY SECTION -->
   <section class="section">
-    <div class="sec-header"><span class="sec-label">Leadership Philosophy</span><div class="sec-rule"></div></div>
+    <div class="sec-header"><span class="sec-label">Our Shared Philosophy</span><div class="sec-rule"></div></div>
     <div class="phil-box">
       <div class="phil-left">
-        <h3>Process Clarity Over Software Choice</h3>
-        <p>This approach focuses on the organizational trust and process clarity required to make technology succeed. Grants departments that struggle don't have a software problem—they have a process and confidence problem. We resolve both before we go live.</p>
+        <h3>Building Capacity, Preserving Knowledge</h3>
+        <p>A system transition at Park Foundation isn't about replacing what works; it's about evolving the tools to better serve the mission. We prioritize organizational trust and process clarity. Our goal is to ensure the technology eventually becomes invisible, allowing the team to focus on the programmatic work they do best.</p>
       </div>
       <div class="phil-right">
-        <div class="phil-point"><span class="pp-title">People Before Platforms</span><span class="pp-desc">System champions are named early so the GMS reflects real-world workflows.</span></div>
-        <div class="phil-point"><span class="pp-title">Data Integrity First</span><span class="pp-desc">No migration until data is clean. Dirty data in a new system is worse than the old one.</span></div>
-        <div class="phil-point"><span class="pp-title">Technology Becomes Invisible</span><span class="pp-desc">The goal is a system so well-fitted that it stops feeling like software and just becomes "how we work."</span></div>
+        <div class="phil-point"><span class="pp-title">Co-Authorship</span><span class="pp-desc">Staff are part of the design process, not just recipients of a new tool.</span></div>
+        <div class="phil-point"><span class="pp-title">Data Stewardship</span><span class="pp-desc">We clean and validate all legacy data to ensure the new foundation is rock solid.</span></div>
+        <div class="phil-point"><span class="pp-title">Sustainable Adoption</span><span class="pp-desc">Training is personalized and ongoing, ensuring no one is left behind in the transition.</span></div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div>Park Foundation · Selection & Implementation Roadmap</div>
-    <div>Strictly Confidential · Virtual Interview May 2025</div>
+    <div>Park Foundation · Digital Evolution Roadmap</div>
+    <div>Strictly Confidential · May 2026</div>
   </footer>
 
 </div>
