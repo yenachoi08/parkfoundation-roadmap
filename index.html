@@ -11,267 +11,231 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --teal-50: #E2F5EE;
-  --teal-100: #A8E2CC;
-  --teal-300: #3DBD8F;
-  --teal-400: #1D9E75;
-  --teal-600: #0F6E56;
-  --teal-800: #074D3C;
-  --purple-50: #EEEDFE;
-  --purple-100: #C9C5F4;
-  --purple-400: #7F77DD;
-  --purple-600: #534AB7;
-  --purple-800: #26215C;
-  --amber-50: #FEF3E2;
-  --amber-100: #FADA9A;
-  --amber-400: #F0A429;
-  --amber-600: #B56D08;
-  --amber-800: #6B3D04;
-  --slate-50: #F4F3F0;
-  --slate-100: #E2E0D8;
-  --slate-200: #C4C1B6;
-  --slate-400: #8A8880;
+  --teal-accent: #1D9E75;
+  --purple-accent: #7F77DD;
+  --amber-accent: #F0A429;
+  --slate-800: #1C1B17;
   --slate-600: #5C5A54;
-  --slate-800: #26251F;
-  --text: #1C1B17;
+  --slate-200: #E2E0D8;
   --text-muted: #656258;
-  --text-faint: #A09D95;
-  --border: rgba(0,0,0,0.08);
-  --border-md: rgba(0,0,0,0.12);
-  --bg: #F9F8F6;
-  --bg-card: #FFFFFF;
-  --header-light: #F0EDE6;
+  --border-light: rgba(0,0,0,0.06);
+  --bg-white: #FFFFFF;
+  --bg-subtle: #FAF9F6;
 }
 
 body {
-  font-family: 'DM Sans', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-white);
+  color: var(--slate-800);
   -webkit-font-smoothing: antialiased;
-  font-size: 14px;
   line-height: 1.6;
 }
 
-.page { max-width: 980px; margin: 0 auto; padding: 0 0 80px; }
+.page { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
 
-/* REFRESHED HERO (Light Mode) */
-.hero-band {
-  background: linear-gradient(135deg, #F0EDE6 0%, #E2E0D8 100%);
-  padding: 60px 56px 52px;
-  position: relative;
+/* MINIMALIST CLEAN HEADER */
+.header {
+  border-bottom: 1px solid var(--slate-800);
+  padding-bottom: 40px;
+  margin-bottom: 60px;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.org-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-accent);
+  margin-bottom: 8px;
+  display: block;
+}
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--slate-800);
+}
+.title em { font-style: italic; font-weight: 400; }
+.meta-info {
+  text-align: right;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.summary-text {
+  margin-top: 30px;
+  font-size: 16px;
+  color: var(--slate-600);
+  max-width: 700px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+/* SECTION STYLING */
+.section { margin-top: 60px; }
+.section-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+/* GANTT CHART - NEAT VERSION */
+.gantt-box {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-md);
 }
-.hero-band::before {
-  content:''; position:absolute; top:-80px; right:-80px;
-  width:320px; height:320px; border-radius:50%;
-  background:radial-gradient(circle,rgba(29,158,117,0.1) 0%,transparent 70%);
-}
-.hero-top {
-  display:flex; justify-content:space-between; align-items:flex-start;
-  margin-bottom:32px; position:relative; z-index:1;
-}
-.hero-org {
-  font-size:10px; font-weight:600; letter-spacing:0.18em;
-  text-transform:uppercase; color:var(--teal-600); margin-bottom:14px;
-}
-.hero-title {
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:46px; font-weight:500; line-height:1.06;
-  color:var(--slate-800); max-width:620px;
-}
-.hero-title em { font-style:italic; color:var(--teal-400); }
-.hero-date-block { text-align:right; flex-shrink:0; padding-top:4px; }
-.hdb-date { font-size:13px; font-weight:500; color:var(--slate-600); margin-bottom:3px; }
-.hdb-sub { font-size:11px; color:var(--slate-400); line-height:1.4; max-width:200px; }
-.hero-desc {
-  font-size:15px; color:var(--slate-600); line-height:1.6;
-  max-width:640px; position:relative; z-index:1;
-  border-top:1px solid rgba(0,0,0,0.05); padding-top:24px;
-}
-.hero-stats { display:flex; gap:40px; margin-top:28px; position:relative; z-index:1; }
-.hs-num {
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:32px; font-weight:500; color:var(--slate-800); line-height:1;
-}
-.hs-label { font-size:10.5px; color:var(--slate-600); margin-top:3px; font-weight:500; }
+.gantt-grid { display: grid; grid-template-columns: 220px 1fr; }
+.gantt-head { background: var(--bg-subtle); padding: 12px 20px; font-size: 10px; font-weight: 700; border-bottom: 1px solid var(--border-light); }
+.gantt-months { display: grid; grid-template-columns: repeat(6, 1fr); background: var(--bg-subtle); border-bottom: 1px solid var(--border-light); border-left: 1px solid var(--border-light); }
+.gm { padding: 12px; text-align: center; font-size: 10px; color: var(--text-muted); border-left: 1px solid var(--border-light); }
+.gm:first-child { border-left: none; }
 
-/* CONTENT BOXES & CARDS */
-.content { padding:0 56px; }
-.section { margin-top:52px; }
-.sec-header { display:flex; align-items:baseline; gap:14px; margin-bottom:20px; }
-.sec-eyebrow {
-  font-size:9.5px; font-weight:600; letter-spacing:0.18em;
-  text-transform:uppercase; color:var(--text-faint); white-space:nowrap;
-}
-.sec-rule { flex:1; height:0.5px; background:var(--border); }
+.gantt-row { display: contents; }
+.gantt-label { padding: 20px; border-bottom: 1px solid var(--border-light); font-size: 13px; font-weight: 500; }
+.gantt-label small { display: block; font-size: 10px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+.gantt-bar-area { border-bottom: 1px solid var(--border-light); border-left: 1px solid var(--border-light); position: relative; display: flex; align-items: center; padding: 0 15px; height: 65px; }
 
-.quote-block {
-  background:var(--teal-50); border-left:3px solid var(--teal-400);
-  border-radius:0 12px 12px 0; padding:20px 26px; margin-top:32px;
-}
-.quote-block p {
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:20px; font-style:italic; color:var(--teal-800); line-height:1.55;
-}
+.bar { height: 28px; border-radius: 2px; display: flex; align-items: center; padding: 0 12px; font-size: 10px; font-weight: 600; position: absolute; }
+.bar-1 { background: #E2F5EE; color: #0F6E56; width: 30%; left: 5%; }
+.bar-2 { background: #EEEDFE; color: #534AB7; width: 45%; left: 35%; }
+.bar-3 { background: #FEF3E2; color: #B56D08; width: 20%; left: 80%; }
 
-/* GMS SPECIFIC CARDS */
-.phase-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.pcard { background:var(--bg-card); border:0.5px solid var(--border-md); border-radius:16px; overflow:hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-.pcard-head { padding:18px 20px 16px; border-bottom:0.5px solid var(--border); }
-.pcard-teal .pcard-head { background:#F0FBF6; }
-.pcard-purple .pcard-head { background:#F5F4FF; }
-.pcard-amber .pcard-head { background:#FFFBF0; }
-.pcard-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--slate-800); }
-.pcard-body { padding:16px 20px; }
-.tactic { display:flex; gap:10px; margin-bottom:12px; }
-.tactic-label { font-size:12px; font-weight:600; margin-bottom:2px; }
-.tactic-desc { font-size:11px; color:var(--text-muted); line-height:1.4; }
+/* MATRIX - MINIMALIST */
+.matrix { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.matrix th { text-align: left; padding: 12px 15px; font-size: 10px; text-transform: uppercase; border-bottom: 2px solid var(--slate-800); color: var(--text-muted); }
+.matrix td { padding: 20px 15px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.role-name { font-weight: 600; font-size: 13px; }
+.role-sub { font-size: 10px; color: var(--text-muted); }
+.badge { font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border: 1px solid; border-radius: 3px; display: inline-block; margin-bottom: 8px; }
+.b-lead { background: #1C1B17; color: #fff; border-color: #1C1B17; }
+.b-core { color: var(--teal-accent); border-color: var(--teal-accent); }
+.m-list { list-style: none; font-size: 11px; color: var(--text-muted); }
+.m-list li { margin-bottom: 4px; padding-left: 12px; position: relative; }
+.m-list li::before { content: "→"; position: absolute; left: 0; color: var(--slate-200); }
 
-/* DEEP FOOTER */
-.footer {
-  border-top:0.5px solid var(--border-md); padding-top:22px;
-  display:flex; justify-content:space-between; align-items:center; margin-top:52px;
-}
+/* PILLS */
+.pills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.pill { font-size: 10px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--slate-200); color: var(--slate-600); font-weight: 500; }
+
+.footer { margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--text-muted); letter-spacing: 0.05em; }
+
 </style>
 </head>
 <body>
 <div class="page">
 
-<!-- HERO -->
-<div class="hero-band">
-  <div class="hero-top">
-    <div>
-      <div class="hero-org">Park Foundation · Strategic Systems Selection</div>
-      <h1 class="hero-title">Selecting the <em>Next Generation</em><br>of Park Foundation Grantmaking</h1>
-    </div>
-    <div class="hero-date-block">
-      <div class="hdb-date">May 18, 2025</div>
-      <div class="hdb-sub">System Selection Strategy · Prepared for Roberta M. Norman, CFO</div>
-    </div>
-  </div>
-  <p class="hero-desc">A roadmap for identifying, acquiring, and launching a new Grants Management System (GMS). This approach ensures the technology solves real bottlenecks, integrates with finance, and earns the full confidence of the program team.</p>
-  <div class="hero-stats">
-    <div class="hs-item"><div class="hs-num">01</div><div class="hs-label">Define Requirements</div></div>
-    <div class="hs-item"><div class="hs-num">02</div><div class="hs-label">VET & SELECT</div></div>
-    <div class="hs-item"><div class="hs-num">03</div><div class="hs-label">MIGRATE & ADOPT</div></div>
-  </div>
-</div>
-
-<div class="content">
-
-  <blockquote class="quote-block">
-    <p>"The most successful system transitions aren't just about picking the best software; they're about ensuring the data is clean and the team feels like co-authors of the solution."</p>
-  </blockquote>
-
-  <!-- PHASE BREAKDOWN -->
-  <div class="section">
-    <div class="sec-header">
-      <div class="sec-eyebrow">The Selection & Implementation Lifecycle</div>
-      <div class="sec-rule"></div>
-    </div>
-    <div class="phase-cards">
-
-      <!-- PHASE 1 -->
-      <div class="pcard pcard-teal">
-        <div class="pcard-head">
-          <div class="pcard-title">Phase 1: Needs Discovery</div>
-          <div class="pcard-sub">"De-risking the Investment"</div>
-        </div>
-        <div class="pcard-body">
-          <div class="tactic"><div>
-            <div class="tactic-label">Requirements Mapping</div>
-            <div class="tactic-desc">Interviewing Program Officers to turn current "manual workarounds" into a must-have technical feature list.</div>
-          </div></div>
-          <div class="tactic"><div>
-            <div class="tactic-label">Institutional Knowledge Audit</div>
-            <div class="tactic-desc">Identifying mission-critical data living outside the current system to ensure it's captured in the new one.</div>
-          </div></div>
-          <div class="tactic"><div>
-            <div class="tactic-label">Financial Integration Prep</div>
-            <div class="tactic-desc">Mapping touchpoints with Sage Intacct to ensure the new GMS eliminates redundant double-entry.</div>
-          </div></div>
-        </div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div>
+        <span class="org-tag">Park Foundation · Grants Operations</span>
+        <h1 class="title">Building for <em>Digital Maturity</em></h1>
       </div>
-
-      <!-- PHASE 2 -->
-      <div class="pcard pcard-purple">
-        <div class="pcard-head">
-          <div class="pcard-title">Phase 2: Vetting & Migration</div>
-          <div class="pcard-sub">"The Technical Heavy Lifting"</div>
-        </div>
-        <div class="pcard-body">
-          <div class="tactic"><div>
-            <div class="tactic-label">Vendor Scorecarding</div>
-            <div class="tactic-desc">Objective comparison of Fluxx, Temelio, and GivingData against our specific 8 program area needs.</div>
-          </div></div>
-          <div class="tactic"><div>
-            <div class="tactic-label">The "Data Scrub"</div>
-            <div class="tactic-desc">Cleaning duplicate grantee records and missing compliance docs *before* migration to ensure a fresh start.</div>
-          </div></div>
-          <div class="tactic"><div>
-            <div class="tactic-label">Automated Compliance</div>
-            <div class="tactic-desc">Configuring hard-stop gates for IRS status and due diligence directly into the new workflow.</div>
-          </div></div>
-        </div>
-      </div>
-
-      <!-- PHASE 3 -->
-      <div class="pcard pcard-amber">
-        <div class="pcard-head">
-          <div class="pcard-title">Phase 3: Adoption & ROI</div>
-          <div class="pcard-sub">"Earned Confidence"</div>
-        </div>
-        <div class="pcard-body">
-          <div class="tactic"><div>
-            <div class="tactic-label">The Sandbox Period</div>
-            <div class="tactic-desc">A safe environment where staff can practice the new system without fear of affecting live grant data.</div>
-          </div></div>
-          <div class="tactic"><div>
-            <div class="tactic-label">Custom SOP Library</div>
-            <div class="tactic-desc">Video tutorials and guides built specifically for Park’s workflows, not generic vendor manuals.</div>
-          </div></div>
-          <div class="tactic"><div>
-            <div class="tactic-label">Optimization Cadence</div>
-            <div class="tactic-desc">Monthly "clinics" to refine settings based on real-world use, ensuring the system evolves with the mission.</div>
-          </div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- OUTCOMES -->
-  <div class="section">
-    <div class="sec-header">
-      <div class="sec-eyebrow">Strategic Value to the Leadership Team</div>
-      <div class="sec-rule"></div>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-      <div style="background:#fff; padding:20px; border-radius:12px; border:0.5px solid var(--border-md);">
-        <strong style="color:var(--teal-600); font-size:12px; text-transform:uppercase;">For the CFO</strong>
-        <p style="font-size:13px; margin-top:8px;">A system that integrates with finance to provide <strong>governance-grade data</strong> and removes the audit risk of manual data re-entry.</p>
-      </div>
-      <div style="background:#fff; padding:20px; border-radius:12px; border:0.5px solid var(--border-md);">
-        <strong style="color:var(--purple-600); font-size:12px; text-transform:uppercase;">For Program Staff</strong>
-        <p style="font-size:13px; margin-top:8px;">Automation of administrative tasks (reminders, letters) that frees up hours each week to focus on <strong>grantee relationships</strong>.</p>
+      <div class="meta-info">
+        <strong>Selection & Implementation Strategy</strong><br>
+        Prepared for Roberta M. Norman, CFO<br>
+        May 2025
       </div>
     </div>
-  </div>
+    <p class="summary-text">
+      "A strategic roadmap for migrating to a next-generation GMS—prioritizing data integrity, fiscal integration, and staff adoption."
+    </p>
+  </header>
+
+  <!-- TIMELINE SECTION -->
+  <section class="section">
+    <div class="section-label">Implementation Timeline</div>
+    <div class="gantt-box">
+      <div class="gantt-grid">
+        <div class="gantt-head">Project Phase</div>
+        <div class="gantt-months">
+          <div class="gm">Month 1</div><div class="gm">Month 2</div><div class="gm">Month 3</div>
+          <div class="gm">Month 4</div><div class="gm">Month 5</div><div class="gm">Month 6</div>
+        </div>
+        
+        <div class="gantt-row">
+          <div class="gantt-label">Discovery & Vetting<small>Requirements & Selection</small></div>
+          <div class="gantt-bar-area"><div class="bar bar-1">Audit & Vendor Scorecarding</div></div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Configuration & Build<small>Data Scrub & Integration</small></div>
+          <div class="gantt-bar-area"><div class="bar bar-2">System Design & Sage Intacct Link</div></div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Change Management<small>Training & Go-Live</small></div>
+          <div class="gantt-bar-area"><div class="bar bar-3">User Adoption & SOPs</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT SECTION -->
+  <section class="section">
+    <div class="section-label">Stakeholder Engagement Matrix</div>
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="width: 200px;">Stakeholder</th>
+          <th>Phase 1: Discovery</th>
+          <th>Phase 2: Build</th>
+          <th>Phase 3: Launch</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="role-name">Program Officers</div><div class="role-sub">Core System Users</div></td>
+          <td><span class="badge b-core">Lead Input</span><ul class="m-list"><li>Workflow Audit</li><li>Bottleneck Mapping</li></ul></td>
+          <td><span class="badge">Tester</span><ul class="m-list"><li>Feature Validation</li><li>Logic Review</li></ul></td>
+          <td><span class="badge">Champion</span><ul class="m-list"><li>Sandbox Testing</li><li>Peer Training</li></ul></td>
+        </tr>
+        <tr>
+          <td><div class="role-name">CFO / Finance</div><div class="role-sub">Roberta M. Norman</div></td>
+          <td><span class="badge">Advisor</span><ul class="m-list"><li>Reporting Needs</li><li>Compliance Audit</li></ul></td>
+          <td><span class="badge b-lead">Co-Architect</span><ul class="m-list"><li>Finance Integration</li><li>Audit Controls</li></ul></td>
+          <td><span class="badge">Sponsor</span><ul class="m-list"><li>ROI Validation</li><li>Final Sign-off</li></ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ARTIFACTS SECTION -->
+  <section class="section">
+    <div class="section-label">Key Deliverables</div>
+    <div class="pills-container">
+      <span class="pill">Requirements Document</span>
+      <span class="pill">Vendor Selection Scorecard</span>
+      <span class="pill">Data Migration Audit</span>
+      <span class="pill">Sage Intacct Integration Map</span>
+      <span class="pill">Custom SOP Video Library</span>
+      <span class="pill">Success Metrics Report</span>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <div class="footer">
-    <div style="font-size:11px; color:var(--text-faint);">
-      Park Foundation · Grants Management & Systems Transformation<br>
-      Strategic Selection Roadmap · May 2025
-    </div>
-    <div style="display:flex; gap:6px;">
-      <span style="font-size:10px; padding:3px 10px; border-radius:20px; background:var(--slate-50); border:0.5px solid var(--slate-200);">System Selection</span>
-      <span style="font-size:10px; padding:3px 10px; border-radius:20px; background:var(--slate-50); border:0.5px solid var(--slate-200);">Data Migration</span>
-    </div>
-  </div>
+  <footer class="footer">
+    <div>PARK FOUNDATION · CONFIDENTIAL</div>
+    <div>STRATEGIC SYSTEMS ROADMAP · 2025</div>
+  </footer>
 
-</div>
 </div>
 </body>
 </html>
