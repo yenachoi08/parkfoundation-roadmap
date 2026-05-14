@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operations & Systems Roadmap — Park Foundation · Yena Choi</title>
+<title>Grants Systems Roadmap — Park Foundation · May 18, 2025</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -11,31 +11,50 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  --tan-0:  #FDFAF4;
   --tan-50: #F7F2E8;
+  --tan-100:#EDE4D0;
   --tan-200:#D9CDB4;
   --tan-300:#C4B495;
+  --tan-400:#A8906E;
   --tan-600:#7A6448;
   --tan-800:#4A3A26;
   --teal-50: #E3F5EF;
   --teal-100:#AADFC8;
+  --teal-300:#3DBD8F;
   --teal-400:#1D9E75;
   --teal-600:#0F6E56;
   --teal-800:#074D3C;
   --ind-50: #EEEDFE;
   --ind-100:#C9C5F4;
+  --ind-400:#7F77DD;
+  --ind-600:#534AB7;
   --ind-800:#26215C;
   --amb-50: #FEF3E2;
   --amb-100:#FAD99A;
+  --amb-400:#EFA729;
+  --amb-600:#B56C08;
   --amb-800:#6A3C04;
+  --ros-50: #FEE9EC;
+  --ros-100:#F8B8C2;
+  --ros-400:#E35A70;
+  --ros-600:#B02840;
   --sl-50:  #F5F3EF;
   --sl-100: #E6E2D8;
+  --sl-200: #C8C3B5;
+  --sl-400: #8C8879;
+  --sl-600: #5A5750;
+  --sl-800: #27251E;
   --text:       #24221B;
   --text-muted: #5F5C53;
   --text-faint: #9E9B91;
+  --border:      rgba(0,0,0,0.07);
   --border-md:  rgba(0,0,0,0.11);
   --bg:          #F5F2EB;
   --card:       #FFFFFF;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
@@ -61,21 +80,30 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 32px;
   margin-bottom: 28px;
 }
 
 .hero-kicker {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--teal-600);
   margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 1.5px;
+  background: var(--teal-400);
 }
 
 .hero-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 42px; font-weight: 500; line-height: 1.1;
+  font-size: 44px; font-weight: 500; line-height: 1.07;
   color: var(--tan-800);
-  max-width: 600px;
+  max-width: 560px;
 }
+.hero-title em { font-style: italic; color: var(--teal-600); }
 
 .hr-block {
   margin-top: 18px;
@@ -83,57 +111,134 @@ body {
   padding: 4px 0 4px 16px;
   text-align: left;
 }
-.hr-name { font-size: 14px; font-weight: 600; color: var(--tan-800); display: block; }
-.hr-sub { font-size: 11.5px; color: var(--tan-600); display: block; margin-top: 4px; }
 
 .hero-desc {
-  font-size: 14px; color: var(--tan-600);
-  line-height: 1.7; max-width: 680px;
-  margin-top: 24px;
+  font-size: 13.5px; color: var(--tan-600);
+  line-height: 1.7; max-width: 600px;
+  border-top: 0.5px solid var(--tan-300);
+  padding-top: 20px; margin-bottom: 28px;
 }
 
 .hero-stats {
-  display: flex; margin-top: 32px;
+  display: flex; gap: 0;
   border: 0.5px solid var(--tan-300);
-  border-radius: 8px; overflow: hidden;
+  border-radius: 12px;
+  overflow: hidden;
   background: rgba(255,255,255,0.45);
+  max-width: 680px;
 }
-.hstat { flex: 1; padding: 12px 20px; border-right: 0.5px solid var(--tan-200); }
+.hstat {
+  flex: 1; padding: 14px 20px;
+  border-right: 0.5px solid var(--tan-200);
+}
 .hstat:last-child { border-right: none; }
-.hstat-num { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--tan-800); line-height: 1; }
-.hstat-label { font-size: 9.5px; color: var(--tan-400); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+.hstat-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px; font-weight: 600; color: var(--tan-800); line-height: 1;
+}
+.hstat-label {
+  font-size: 10px; color: var(--tan-400);
+  margin-top: 3px; line-height: 1.3;
+}
 
 /* ── CONTENT ── */
 .content { padding: 0 56px; }
-.section { margin-top: 52px; }
-.sec-hd { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.sec-label { font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); }
-.sec-rule { flex: 1; height: 1px; background: var(--border-md); }
+.section { margin-top: 48px; }
+
+.sec-hd {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 18px;
+}
+.sec-label {
+  font-size: 9.5px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-faint); white-space: nowrap;
+}
+.sec-rule { flex: 1; height: 0.5px; background: var(--border-md); }
+
+/* ── GANTT ── */
+.gantt-card {
+  background: var(--card);
+  border: 0.5px solid var(--border-md);
+  border-radius: 14px; overflow: hidden;
+}
+.gantt-grid { display: grid; grid-template-columns: 220px 1fr; }
+
+.g-col-hd {
+  background: var(--sl-50); border-bottom: 0.5px solid var(--border-md);
+  border-right: 0.5px solid var(--border-md);
+  padding: 10px 16px;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+.g-months {
+  background: var(--sl-50); border-bottom: 0.5px solid var(--border-md);
+  display: grid; grid-template-columns: repeat(12,1fr);
+}
+.gmo {
+  padding: 10px 0; text-align: center; font-size: 10px;
+  font-weight: 500; color: var(--text-faint);
+  border-left: 0.5px solid var(--border); letter-spacing: 0.03em;
+}
+.g-phase-cell {
+  border-right: 0.5px solid var(--border-md);
+  border-bottom: 0.5px solid var(--border);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+}
+.g-phase-cell.last { border-bottom: none; }
+.gp-num {
+  font-size: 8.5px; font-weight: 500; letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.gp-name { font-size: 12px; font-weight: 500; line-height: 1.25; }
+.gp-time { font-size: 10px; color: var(--text-faint); margin-top: 1px; }
+
+.g-bar-row {
+  border-bottom: 0.5px solid var(--border);
+  display: grid; grid-template-columns: repeat(12,1fr);
+  position: relative; min-height: 48px;
+  align-items: center; padding: 10px 0;
+}
+.gbar {
+  position: absolute; min-height: 30px; height: auto; border-radius: 7px;
+  top: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; padding: 5px 10px;
+  z-index: 2;
+}
+.gb-t { background: var(--teal-50); border: 0.5px solid var(--teal-100); }
+.gb-i { background: var(--ind-50);  border: 0.5px solid var(--ind-100); }
+.gb-a { background: var(--amb-50);  border: 0.5px solid var(--amb-100); }
+.gbar span { font-size:10px; font-weight:500; line-height:1.25; }
+
+/* ── PHASE CARDS ── */
+.phase-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.pcard {
+  background: var(--card); border: 0.5px solid var(--border-md);
+  border-radius: 14px; overflow: hidden;
+}
+.pcard-hd { padding: 16px 18px 14px; border-bottom: 0.5px solid var(--border); }
+.pcard-body { padding: 14px 18px 16px; }
 
 /* ── MATRIX ── */
-.matrix-wrap { background: var(--card); border: 0.5px solid var(--border-md); border-radius: 12px; overflow: hidden; }
-.mx-head { display: grid; grid-template-columns: 220px repeat(3,1fr); background: var(--sl-50); border-bottom: 1px solid var(--border-md); }
-.mxh-blank { border-right: 0.5px solid var(--border-md); padding: 12px 16px; font-size: 9px; font-weight: 600; text-transform: uppercase; color: var(--text-faint); }
-.mxh-col { padding: 12px 16px; border-right: 0.5px solid var(--border); }
-.mxh-col:last-child { border-right: none; }
-.mxh-name { font-size: 11px; font-weight: 600; color: var(--text); }
-.mx-row { display: grid; grid-template-columns: 220px repeat(3,1fr); border-bottom: 0.5px solid var(--border); }
-.mx-row:last-child { border-bottom: none; }
-.mx-role { border-right: 0.5px solid var(--border-md); padding: 16px; }
-.mx-rname { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-.mx-cell { padding: 16px; border-right: 0.5px solid var(--border); }
-.eng { font-size: 9px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; display: inline-block; text-transform: uppercase; }
-.eng-lead { background: var(--tan-800); color: #fff; }
-.eng-core { background: var(--teal-50); color: var(--teal-800); border: 0.5px solid var(--teal-100); }
-.mx-acts { list-style: none; font-size: 11px; color: var(--text-muted); line-height: 1.5; }
-.mx-acts li { padding-left: 12px; position: relative; margin-bottom: 4px; }
-.mx-acts li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-weight: bold; }
-
-/* ── GUIDING PRINCIPLES ── */
-.out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.out-card { background: var(--card); border: 0.5px solid var(--border-md); border-radius: 12px; padding: 20px; }
-.out-title { font-size: 13px; font-weight: 600; color: var(--text); display: block; margin-bottom: 8px; border-bottom: 1px solid var(--teal-100); padding-bottom: 8px; }
-.out-desc { font-size: 11.5px; color: var(--text-muted); line-height: 1.6; }
+.matrix-wrap {
+  background: var(--card);
+  border: 0.5px solid var(--border-md);
+  border-radius: 14px; overflow: hidden;
+}
+.mx-head, .mx-row {
+  display: grid; grid-template-columns: 220px repeat(3,1fr);
+  border-bottom: 0.5px solid var(--border);
+}
+.mxh-blank {
+  border-right: 0.5px solid var(--border-md);
+  padding: 12px 16px;
+  font-size: 9px; font-weight: 500; text-transform: uppercase; color: var(--text-faint);
+}
+.mx-role {
+  border-right: 0.5px solid var(--border-md);
+  padding: 16px;
+}
 
 </style>
 </head>
@@ -143,122 +248,30 @@ body {
 <div class="hero">
   <div class="hero-top">
     <div>
-      <div class="hero-kicker">Operational Framework · Park Foundation</div>
-      <h1 class="hero-title">Operations &amp; Systems Roadmap</h1>
+      <div class="hero-kicker">Park Foundation · Strategic System Selection &amp; Implementation</div>
+      <h1 class="hero-title">A Roadmap for<br><em>Digital Evolution</em></h1>
       
       <div class="hr-block">
-        <div class="hr-name">Prepared by Yena Choi</div>
-        <div class="hr-sub">For Amy Panek, Roberta Norman, and Heidi Sherwood</div>
-        <div class="hr-sub" style="margin-top: 2px;"><i>May 18 Virtual Interview</i></div>
+        <div style="font-size: 14px; font-weight: 600; color: var(--tan-800); display: block;">Prepared by Yena Choi</div>
+        <div style="color:var(--tan-600); font-size:11.5px; display: block; margin-top: 4px;">For Amy Panek, Roberta Norman, and Heidi Sherwood</div>
+        <div style="color:var(--tan-600); font-size:11.5px; display: block; margin-top: 2px;"><i>May 18 Virtual Interview</i></div>
       </div>
     </div>
   </div>
-  
-  <p class="hero-desc">
-    This roadmap outlines a structured approach to assessing and implementing a new Grants Management System. The goal is to ensure the transition protects institutional memory, integrates directly with Sage Intacct, and supports the team’s commitment to relational, partner-centered grantmaking.
-  </p>
-
+  <p class="hero-desc">This is a starting point for a conversation — not a prescription. What I'm proposing is a thoughtful, staff-led process for finding a grants system that actually fits the way Park works, and making the transition at a pace the whole team can trust.</p>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-num">330+</div><div class="hstat-label">Annual Grantees</div></div>
-    <div class="hstat"><div class="hstat-num">$30M+</div><div class="hstat-label">Grants Distributed</div></div>
-    <div class="hstat"><div class="hstat-num">$406M</div><div class="hstat-label">Endowment Value</div></div>
+    <div class="hstat"><div class="hstat-num">3</div><div class="hstat-label">Collaborative phases</div></div>
+    <div class="hstat"><div class="hstat-num">12–18 mo</div><div class="hstat-label">Transition window</div></div>
+    <div class="hstat"><div class="hstat-num">330+</div><div class="hstat-label">Annual grantees</div></div>
+    <div class="hstat"><div class="hstat-num">8</div><div class="hstat-label">Funding priorities</div></div>
+    <div class="hstat"><div class="hstat-num">$30M+</div><div class="hstat-label">Annual grantmaking</div></div>
+    <div class="hstat"><div class="hstat-num">$406M</div><div class="hstat-label">Endowment</div></div>
   </div>
 </div>
 
 <div class="content">
-
-  <div class="section">
-    <div class="sec-hd">
-      <div class="sec-label">Stakeholder Engagement &amp; Accountability</div>
-      <div class="sec-rule"></div>
-    </div>
-
-    <div class="matrix-wrap">
-      <div class="mx-head">
-        <div class="mxh-blank">Function</div>
-        <div class="mxh-col"><div class="mxh-name">Discovery</div></div>
-        <div class="mxh-col"><div class="mxh-name">System Build</div></div>
-        <div class="mxh-col"><div class="mxh-name">Support</div></div>
-      </div>
-
-      <div class="mx-row">
-        <div class="mx-role"><div class="mx-rname">Program Officers</div></div>
-        <div class="mx-cell">
-          <div class="eng eng-lead">Workflow Leads</div>
-          <ul class="mx-acts"><li>Document daily workflows</li><li>Identify process hurdles</li></ul>
-        </div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Co-Designers</div>
-          <ul class="mx-acts"><li>Beta test system logic</li><li>Validate award automation</li></ul>
-        </div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Owners</div>
-          <ul class="mx-acts"><li>Lead sandbox testing</li><li>Utilize verbal reporting logs</li></ul>
-        </div>
-      </div>
-
-      <div class="mx-row">
-        <div class="mx-role"><div class="mx-rname">Executive Director</div></div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Strategy Partner</div>
-          <ul class="mx-acts"><li>Define long-term vision</li><li>Set implementation pace</li></ul>
-        </div>
-        <div class="mx-cell">
-          <div class="eng eng-lead">Approver</div>
-          <ul class="mx-acts"><li>Sign-off on GMS selection</li><li>Review integration strategy</li></ul>
-        </div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Oversight</div>
-          <ul class="mx-acts"><li>Access live dashboards</li><li>Review portfolio metrics</li></ul>
-        </div>
-      </div>
-
-      <div class="mx-row">
-        <div class="mx-role"><div class="mx-rname">Roberta (CFO)</div></div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Technical Advisor</div>
-          <ul class="mx-acts"><li>Audit data risk areas</li><li>Map fiscal touchpoints</li></ul>
-        </div>
-        <div class="mx-cell">
-          <div class="eng eng-lead">Co-Architect</div>
-          <ul class="mx-acts"><li>Design Sage Intacct sync</li><li>Configure compliance gates</li></ul>
-        </div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Audit Lead</div>
-          <ul class="mx-acts"><li>Final data validation</li><li>Ensure zero double-entry</li></ul>
-        </div>
-      </div>
-
-      <div class="mx-row">
-        <div class="mx-role"><div class="mx-rname">Trustees</div></div>
-        <div class="mx-cell"><div class="mx-acts">Briefed on scope</div></div>
-        <div class="mx-cell"><ul class="mx-acts"><li>Milestone updates</li><li>Budget approval</li></ul></div>
-        <div class="mx-cell">
-          <div class="eng eng-core">Beneficiary</div>
-          <ul class="mx-acts"><li>Governance-grade data</li><li>Real-time portfolio views</li></ul>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <div class="section">
-    <div class="sec-hd">
-      <div class="sec-label">Guiding Principles for Implementation</div>
-      <div class="sec-rule"></div>
-    </div>
-    <div class="out-grid">
-      <div class="out-card">
-        <span class="out-title">Reducing the Burden of Process</span>
-        <span class="out-desc">In a trust-based model, technology should absorb administrative labor so people don’t have to. By automating repetitive tasks—like the LOI-to-proposal bridge and compliance checks—we return valuable time to both our grantee partners and our staff.</span>
-      </div>
-      <div class="out-card">
-        <span class="out-title">Integrity through Validation</span>
-        <span class="out-desc">Technical transitions succeed when they earn the team’s trust. We prioritize a proactive data scrub followed by a parallel testing period where the new system operates alongside the old, ensuring our grantmaking remains seamless and secure.</span>
-      </div>
-    </div>
-  </div>
-
-</div>
 </div>
 </body>
 </html>
